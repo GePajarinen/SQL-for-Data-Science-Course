@@ -14,7 +14,7 @@ In this case, you may want to save as a PDF to ensure your formatting remains in
 
 ### 1. Profile the data by finding the total number of records for each of the tables below:
 	
-i. Attribute table = **10000** 
+i. Attribute table = **10000**    
 ii. Business table = **10000**    
 iii. Category table = **10000**   
 iv. Checkin table = **10000**    
