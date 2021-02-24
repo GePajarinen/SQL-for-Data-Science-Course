@@ -16,37 +16,43 @@ Part 1: Yelp Dataset Profiling and Understanding
 
 1. Profile the data by finding the total number of records for each of the tables below:
 	
-i. Attribute table = 10000 
-ii. Business table = 10000 
-iii. Category table = 10000 
-iv. Checkin table = 10000 
-v. elite_years table = 10000 
-vi. friend table = 10000
-vii. hours table = 10000 
-viii. photo table =  10000
-ix. review table = 10000 
-x. tip table = 10000 
-xi. user table = 10000 
+i. Attribute table = 10000    
+ii. Business table = 10000    
+iii. Category table = 10000    
+iv. Checkin table = 10000    
+v. elite_years table = 10000    
+vi. friend table = 10000   
+vii. hours table = 10000    
+viii. photo table =  10000   
+ix. review table = 10000    
+x. tip table = 10000    
+xi. user table = 10000    
 	
-
+***********SQL CODE**********
+SELECT COUNT(*)
+FROM table
+*****************************
 
 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
 
-i. Business =
-ii. Hours =
-iii. Category =
-iv. Attribute =
-v. Review =
-vi. Checkin = 
-vii. Photo =
-viii. Tip = 
-ix. User = 
-x. Friend = 
-xi. Elite_years =
+i. Business = ID 10000 
+ii. Hours = business_id 1562 
+iii. Category = business_id 2643
+iv. Attribute = business_id 1115 
+v. Review = id 10000 
+vi. Checkin = business_id 493 
+vii. Photo = id 10000 
+viii. Tip = business_id 3979, user_id 537 
+ix. User = id 10000 
+x. Friend = user_id 11
+xi. Elite_years = user_id 2780 
 
 Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
-
+***********SQL CODE**********
+select COUNT(distinct key_id)
+from table 
+*****************************
 
 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
 
