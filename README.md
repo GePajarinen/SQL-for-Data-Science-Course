@@ -112,23 +112,53 @@ OR compliment_photos IS NULL
 	v. Table: User, Column: Review_count
 	
 		min: 0		max: 2000	avg: 24.2995
-		
- Select min(Stars)   
- from Review  
- 
-  Select max(Stars)   
- from Review   
- 
-  Select avg(Stars)
- from Review
+
+
+
+ Select  MIN(Column),MAX(Column),AVG(Column)
+ from table     
+
 
 5. List the cities with the most reviews in descending order:
 
 	SQL code used to arrive at answer:
-	
+	 
+	 Select city, SUM(review_count) AS total_reviews
+ from Business 
+ group by city
+ order by total_reviews DESC
 	
 	Copy and Paste the Result Below:
-	
+	+-----------------+---------------+
+| city            | total_reviews |
++-----------------+---------------+
+| Las Vegas       |         82854 |
+| Phoenix         |         34503 |
+| Toronto         |         24113 |
+| Scottsdale      |         20614 |
+| Charlotte       |         12523 |
+| Henderson       |         10871 |
+| Tempe           |         10504 |
+| Pittsburgh      |          9798 |
+| Montréal        |          9448 |
+| Chandler        |          8112 |
+| Mesa            |          6875 |
+| Gilbert         |          6380 |
+| Cleveland       |          5593 |
+| Madison         |          5265 |
+| Glendale        |          4406 |
+| Mississauga     |          3814 |
+| Edinburgh       |          2792 |
+| Peoria          |          2624 |
+| North Las Vegas |          2438 |
+| Markham         |          2352 |
+| Champaign       |          2029 |
+| Stuttgart       |          1849 |
+| Surprise        |          1520 |
+| Lakewood        |          1465 |
+| Goodyear        |          1155 |
++-----------------+---------------+
+(Output limit exceeded, 25 of 362 total rows shown)
 
 	
 6. Find the distribution of star ratings to the business in the following cities:
