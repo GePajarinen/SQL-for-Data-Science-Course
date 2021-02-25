@@ -374,7 +374,7 @@ Copy and Paste the Result Below:
 
 ### 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.   
 
-*Checking the Categories:**    
+*Checking the Categories:*    
 
 ```SQL
 SELECT
@@ -418,9 +418,9 @@ ORDER BY
 (Output limit exceeded, 25 of 712 total rows shown)   
 
 
-**I chose  Bars | 185 |**
+**I chose  Bars**
 
-**Checking the cities:**
+*Checking the cities:*
 ```SQL   
 SELECT
   city,
@@ -432,9 +432,9 @@ GROUP BY
   city
 ORDER BY
   num DESC
-```
+```   
 
-**I Chose  Toronto **
+**I Chose Toronto**
 
 **Grouping by stars, it shows only SATURDAY time** 
 
