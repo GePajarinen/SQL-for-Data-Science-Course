@@ -33,59 +33,61 @@ FROM table
 
 ### 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
 
-i. Business = ID 10000    
-ii. Hours = business_id 1562    
-iii. Category = business_id 2643   
-iv. Attribute = business_id 1115    
-v. Review = id 10000    
-vi. Checkin = business_id 493    
-vii. Photo = id 10000    
-viii. Tip = business_id 3979, user_id 537    
-ix. User = id 10000    
-x. Friend = user_id 11   
-xi. Elite_years = user_id 2780    
+i. Business = **ID 10000**   
+ii. Hours = **business_id 1562**    
+iii. Category = **business_id 2643**   
+iv. Attribute = **business_id 1115**    
+v. Review = **id 10000**    
+vi. Checkin = **business_id 493**    
+vii. Photo = **id 10000**    
+viii. Tip = **business_id 3979, user_id 537**    
+ix. User = **id 10000**    
+x. Friend = **user_id 11**   
+xi. Elite_years = **user_id 2780**    
 
-Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.   
+*Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.   
 
 ```SQL 
 select COUNT(distinct key_id)
 from table 
 ```   
 
-3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
+### 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
+Answer: **No**   
 
-	Answer: No
-	
-	
-	SQL code used to arrive at answer:
-	
-	select *
-from user          
-where id IS NULL
-OR name IS NULL
-OR review_count IS NULL
-OR yelping_since IS NULL
-OR useful IS NULL
-OR funny IS NULL
-OR cool IS NULL
-OR fans IS NULL
-OR average_stars IS NULL
-OR compliment_hot IS NULL
-OR compliment_more IS NULL
-OR compliment_profile IS NULL
-OR compliment_cute IS NULL
-OR compliment_list IS NULL
-OR compliment_note IS NULL
-OR compliment_plain IS NULL
-OR compliment_cool IS NULL
-OR compliment_funny IS NULL
-OR compliment_writer IS NULL
-OR compliment_photos IS NULL
-	
-	
+SQL code used to arrive at answer:   
+
+```SQL 	
+SELECT 
+	*
+FROM 
+	user          
+WHERE
+	id IS NULL
+	OR name IS NULL
+	OR review_count IS NULL
+	OR yelping_since IS NULL
+	OR useful IS NULL
+	OR funny IS NULL
+	OR cool IS NULL
+	OR fans IS NULL
+	OR average_stars IS NULL
+	OR compliment_hot IS NULL
+	OR compliment_more IS NULL
+	OR compliment_profile IS NULL
+	OR compliment_cute IS NULL
+	OR compliment_list IS NULL
+	OR compliment_note IS NULL
+	OR compliment_plain IS NULL
+	OR compliment_cool IS NULL
+	OR compliment_funny IS NULL
+	OR compliment_writer IS NULL
+	OR compliment_photos IS NULL
+```	
+*Será tudo isso mesmo?	
 
 	
-4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
+### 4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
 	i. Table: Review, Column: Stars
 	
