@@ -339,12 +339,37 @@ WHERE
 	
 ### 10. Find the top 10 users with the most fans:
 
-SQL code used to arrive at answer:
-	
+SQL code used to arrive at answer:   
+
+```SQL	  
+SELECT
+  id,
+  name,
+  fans AS total_fans
+  --sum(fans) as total_fans
+FROM
+  user
+  --GROUP BY id
+ORDER BY
+  total_fans DESC
+LIMIT
+  10	
+```SQL	  
 	
 Copy and Paste the Result Below:
 
-	
+| id                     | name      | total_fans |
+|------------------------|-----------|------------|
+| -9I98YbNQnLdAmcYfb324Q | Amy       |        503 |
+| -8EnCioUmDygAbsYZmTeRQ | Mimi      |        497 |
+| --2vR0DIsmQ6WfcSzKWigw | Harald    |        311 |
+| -G7Zkl1wIWBBmD0KRy_sCw | Gerald    |        253 |
+| -0IiMAZI2SsQ7VmyzJjokQ | Christine |        173 |
+| -g3XIcCb2b-BD0QBCcq2Sw | Lisa      |        159 |
+| -9bbDysuiWeo2VShFJJtcw | Cat       |        133 |
+| -FZBTkAZEXoP7CYvRV2ZwQ | William   |        126 |
+| -9da1xk7zgnnfO1uTVYGkA | Fran      |        124 |
+| -lh59ko3dxChBSZ9U7LfUw | Lissa     |        120 |
 		
 
 ## Part 2: Inferences and Analysis
