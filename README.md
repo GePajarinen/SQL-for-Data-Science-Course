@@ -1,5 +1,6 @@
 # SQL for Data Science
 ### Course from Coursera
+https://www.coursera.org/learn/sql-for-data-science/home/welcome
 
 Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
 
