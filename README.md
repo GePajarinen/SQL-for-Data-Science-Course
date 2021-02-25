@@ -125,15 +125,20 @@ v. Table: User, Column: Review_count
  	table     
 ```   
 
-5. List the cities with the most reviews in descending order:
+### 5. List the cities with the most reviews in descending order:
 
-	SQL code used to arrive at answer:
-	 
-	 Select city, SUM(review_count) AS total_reviews
- from Business 
- group by city
- order by total_reviews DESC
-	
+SQL code used to arrive at answer:
+```SQL	 
+SELECT
+  city,
+  SUM(review_count) AS total_reviews
+FROM
+  Business
+GROUP BY
+  city
+ORDER BY
+  total_reviews DESC
+```   	
 	Copy and Paste the Result Below:
 	+-----------------+---------------+
 | city            | total_reviews |
