@@ -313,10 +313,10 @@ ORDER BY
 
 Answer:   
 **1644 reviews with the word 'LOVE' and 115 reviews with the word 'HATE'.**   
-**!! One importante thing I noticed is that, if I use '%hate%' it counts the word 'WHATEVER'. So, if I use '% hate%', it excludes this mistake.   
+**!!ONE IMPORTANTE thing I noticed is that, if I use '%hate%' it counts the word 'WHATEVER'. So, if I use '% hate%', it excludes this mistake.   
 Also, if I use '% hate %', it could exclude the cases when the word 'hate' comes followed by comma "," or dot "." and the conjugated verbs ("hated").    
 The same I did for the word 'love'.**   
-**Just for curiosity: the results with the '%hate%': 232 and with '%love%': 1780**
+**Just out of curiosity: the results with the '%hate%': 232 and with '%love%': 1780.**
 
 ```SQL	
 SQL code used to arrive at answer:
@@ -339,10 +339,10 @@ WHERE
 	
 ### 10. Find the top 10 users with the most fans:
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 	
 	
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
 
 	
 		
