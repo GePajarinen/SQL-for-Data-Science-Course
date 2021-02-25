@@ -216,7 +216,7 @@ GROUP BY
   stars
 ```   
 
-Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
+Copy and Paste the Resulting Table Below (2 columns - star rating and count):
 		
 | stars | total_reviews |
 |-------|---------------|
@@ -231,11 +231,30 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 
 ### 7. Find the top 3 users based on their total number of reviews:
 		
-	SQL code used to arrive at answer:
-	
-		
-	Copy and Paste the Result Below:
-		
+SQL code used to arrive at answer:
+
+```SQL
+SELECT
+  id,
+  name,
+  SUM(review_count) AS total_reviews -- in case of duplicate user
+FROM
+  user
+GROUP BY
+  id -- Some didn´t have name
+ORDER BY
+  total_reviews DESC
+LIMIT
+  3	
+```   
+
+Copy and Paste the Result Below:
+
+| id                     | name   | total_reviews |
+|------------------------|--------|---------------|
+| -G7Zkl1wIWBBmD0KRy_sCw | Gerald |          2000 |
+| -3s52C4zL_DHRK0ULG6qtg | Sara   |          1629 |
+| -8lbUNlXVSoXqaRRiHiSNg | Yuri   |          1339 |
 
 
 ### 8. Does posing more reviews correlate with more fans?
