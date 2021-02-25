@@ -450,31 +450,31 @@ ORDER BY
 
 | name               | city    | category | stars | hours                 |
 |--------------------|---------|----------|-------|-----------------------|
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Friday|11:00-2:00     |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Friday|15:00-21:00    |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Friday|15:00-2:00     |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Friday|18:00-2:00     |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Monday|11:00-2:00     |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Monday|15:00-1:00     |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Monday|16:00-2:00     |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00   |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00  |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00   |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00   |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Sunday|10:00-2:00     |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Sunday|11:00-21:00    |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Sunday|16:00-2:00     |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Thursday|11:00-2:00   |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Thursday|15:00-1:00   |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Thursday|15:00-21:00  |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Thursday|18:00-2:00   |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Tuesday|11:00-2:00    |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Tuesday|15:00-1:00    |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Tuesday|15:00-21:00   |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Tuesday|18:00-2:00    |
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Wednesday|11:00-2:00  |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Wednesday|15:00-1:00  |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Wednesday|15:00-21:00 |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Friday 11:00-2:00     |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Friday 15:00-21:00    |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Friday 15:00-2:00     |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Friday 18:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Monday 11:00-2:00     |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Monday 15:00-1:00     |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Monday 16:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday 10:00-2:00   |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday 11:00-21:00  |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday 16:00-2:00   |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday 18:00-2:00   |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Sunday 10:00-2:00     |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Sunday 11:00-21:00    |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Sunday 16:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Thursday 11:00-2:00   |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Thursday 15:00-1:00   |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Thursday 15:00-21:00  |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Thursday 18:00-2:00   |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Tuesday 11:00-2:00    |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Tuesday 15:00-1:00    |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Tuesday 15:00-21:00   |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Tuesday 18:00-2:00    |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Wednesday 11:00-2:00  |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Wednesday 15:00-1:00  |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Wednesday 15:00-21:00 |
 (Output limit exceeded, 25 of 26 total rows shown)
 
 i. Do the two groups you chose to analyze have a different distribution of hours?
