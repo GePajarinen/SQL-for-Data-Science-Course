@@ -436,38 +436,15 @@ ORDER BY
 
 **I Chose  Toronto **
 
-i. Do the two groups you chose to analyze have a different distribution of hours?
-```SQL
-SELECT
-  business.name,
-  business.city,
-  category.category,
-  business.stars,
-  hours.hours
-FROM (business
-  INNER JOIN
-    category
-  ON
-    business.id = category.business_id)
-INNER JOIN
-  hours
-ON
-  hours.business_id = business.id
-WHERE
-  business.city = 'Toronto'
-  AND category.category = "Bars"
-GROUP BY
-  business.stars
-```
-
 **Grouping by stars, it shows only SATURDAY time** 
 
-| name               | city    | category | stars | hours                |
-|--------------------|---------|----------|-------|----------------------|
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00  |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00  |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00 |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00  |
+| name               | city    | category | stars | hours                | Total_reviews |
+|--------------------|---------|----------|-------|----------------------|---------------|
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00  |           245 |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00  |            60 |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00 |            90 |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00  |           182 |
+
 
 **It´s interesting grouping by hours.hours**
 
@@ -498,16 +475,42 @@ GROUP BY
 | The Fox & Fiddle   | Toronto | Bars     |   2.5 | Wednesday|11:00-2:00  |
 | The Charlotte Room | Toronto | Bars     |   3.5 | Wednesday|15:00-1:00  |
 | Halo Brewery       | Toronto | Bars     |   4.0 | Wednesday|15:00-21:00 |
-+--------------------+---------+----------+-------+-----------------------+
 (Output limit exceeded, 25 of 26 total rows shown)
 
+i. Do the two groups you chose to analyze have a different distribution of hours?
+**The Bars with highest stars open afernoom, when the Bar with the lowest stars points opens before noom, at 11am.**
+
 ii. Do the two groups you chose to analyze have a different number of reviews?
-         
+**The Bars with lowest stars have a bit more reviews than the ones with highest stars**         
          
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
 
 SQL code used for analysis:
 
+```SQL
+SELECT
+  business.name,
+  business.city,
+  category.category,
+  business.stars,
+  hours.hours,
+  sum(business.review_count) as Total_reviews
+FROM (business
+  INNER JOIN
+    category
+  ON
+    business.id = category.business_id)
+INNER JOIN
+  hours
+ON
+  hours.business_id = business.id
+WHERE
+  business.city = 'Toronto'
+  AND category.category = "Bars"
+GROUP BY
+  business.stars
+
+```
 		
 		
 ### 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
