@@ -177,6 +177,7 @@ Copy and Paste the Result Below:
 i. Avon
 
 SQL code used to arrive at answer:   
+
 ```SQL   
 SELECT
   stars,
@@ -187,7 +188,8 @@ WHERE
   city = 'Avon'
 GROUP BY
   stars
-```   
+```  
+
 Copy and Paste the Resulting Table Below  (2 columns – star rating and count):   
 | stars | total_reviews |
 |-------|---------------|
@@ -202,9 +204,29 @@ ii. Beachwood
 
 SQL code used to arrive at answer:
 
+```SQL 
+SELECT
+  stars,
+  SUM(review_count) AS total_reviews
+FROM
+  Business
+WHERE
+  city = 'Beachwood'
+GROUP BY
+  stars
+```   
 
 Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
 		
+| stars | total_reviews |
+|-------|---------------|
+|   2.0 |             8 |
+|   2.5 |             3 |
+|   3.0 |            11 |
+|   3.5 |             6 |
+|   4.0 |            69 |
+|   4.5 |            17 |
+|   5.0 |            23 |
 
 
 ### 7. Find the top 3 users based on their total number of reviews:
