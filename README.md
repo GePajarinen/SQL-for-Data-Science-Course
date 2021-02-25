@@ -176,11 +176,27 @@ Copy and Paste the Result Below:
 
 i. Avon
 
-SQL code used to arrive at answer:
-
-
-Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
-
+SQL code used to arrive at answer:   
+```SQL   
+SELECT
+  stars,
+  SUM(review_count) AS total_reviews
+FROM
+  Business
+WHERE
+  city = 'Avon'
+GROUP BY
+  stars
+```   
+Copy and Paste the Resulting Table Below  (2 columns – star rating and count):   
+| stars | total_reviews |
+|-------|---------------|
+|   1.5 |            10 |
+|   2.5 |             6 |
+|   3.5 |            88 |
+|   4.0 |            21 |
+|   4.5 |            31 |
+|   5.0 |             3 |
 
 ii. Beachwood
 
