@@ -259,10 +259,57 @@ Copy and Paste the Result Below:
 
 ### 8. Does posing more reviews correlate with more fans?
 
-	Please explain your findings and interpretation of the results:
-	
+Please explain your findings and interpretation of the results:
+**Not really. 
+Amy, who has the most amount of fans, has only 609 reviews. That is just 30.45% of reviews comparing to Gerald, who has the highest count of reviews and has about half amount of fans (253 fans)**
 
-	
+```SQL
+SELECT
+  id,
+  name,
+  SUM(review_count) AS total_reviews,
+  -- in case of duplicate user
+  SUM(fans) AS total_fans
+  --fans -- it works too as SUM, but let be the SUM just to be sure
+FROM
+  user
+GROUP BY
+  id -- Some didn´t have name
+ORDER BY
+  total_fans DESC
+```   
+
+
+| id                     | name      | total_reviews | total_fans |   
+|------------------------|-----------|---------------|------------|   
+| -9I98YbNQnLdAmcYfb324Q | Amy       |           609 |        503 |   
+| -8EnCioUmDygAbsYZmTeRQ | Mimi      |           968 |        497 |   
+| --2vR0DIsmQ6WfcSzKWigw | Harald    |          1153 |        311 |   
+| -G7Zkl1wIWBBmD0KRy_sCw | Gerald    |          2000 |        253 |   
+| -0IiMAZI2SsQ7VmyzJjokQ | Christine |           930 |        173 |   
+| -g3XIcCb2b-BD0QBCcq2Sw | Lisa      |           813 |        159 |   
+| -9bbDysuiWeo2VShFJJtcw | Cat       |           377 |        133 |   
+| -FZBTkAZEXoP7CYvRV2ZwQ | William   |          1215 |        126 |   
+| -9da1xk7zgnnfO1uTVYGkA | Fran      |           862 |        124 |   
+| -lh59ko3dxChBSZ9U7LfUw | Lissa     |           834 |        120 |   
+| -B-QEUESGWHPE_889WJaeg | Mark      |           861 |        115 |   
+| -DmqnhW4Omr3YhmnigaqHg | Tiffany   |           408 |        111 |   
+| -cv9PPT7IHux7XUc9dOpkg | bernice   |           255 |        105 |   
+| -DFCC64NXgqrxlO8aLU5rg | Roanna    |          1039 |        104 |   
+| -IgKkE8JvYNWeGu8ze4P8Q | Angela    |           694 |        101 |   
+| -K2Tcgh2EKX6e6HqqIrBIQ | .Hon      |          1246 |        101 |   
+| -4viTt9UC44lWCFJwleMNQ | Ben       |           307 |         96 |   
+| -3i9bhfvrM3F1wsC9XIB8g | Linda     |           584 |         89 |   
+| -kLVfaJytOJY2-QdQoCcNQ | Christina |           842 |         85 |   
+| -ePh4Prox7ZXnEBNGKyUEA | Jessica   |           220 |         84 |   
+| -4BEUkLvHQntN6qPfKJP2w | Greg      |           408 |         81 |   
+| -C-l8EHSLXtZZVfUAUhsPA | Nieves    |           178 |         80 |   
+| -dw8f7FLaUmWR7bfJ_Yf0w | Sui       |           754 |         78 |   
+| -8lbUNlXVSoXqaRRiHiSNg | Yuri      |          1339 |         76 |   
+| -0zEEaDFIjABtPQni0XlHA | Nicole    |           161 |         73 |   
+(Output limit exceeded, 25 of 10000 total rows shown)  
+
+
 ### 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
 	Answer:
