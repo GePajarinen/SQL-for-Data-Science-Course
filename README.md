@@ -259,9 +259,9 @@ Copy and Paste the Result Below:
 
 ### 8. Does posing more reviews correlate with more fans?
 
-Please explain your findings and interpretation of the results:
+Please explain your findings and interpretation of the results:   
 **Not really. 
-Amy, who has the most amount of fans, has only 609 reviews. That is just 30.45% of reviews comparing to Gerald, who has the highest count of reviews and has about half amount of fans (253 fans)**
+Amy, who has the most amount of fans, has only 609 reviews. That is just 30.45% of reviews comparing to Gerald, who has the highest count of reviews and has about half amount of fans (253 fans).**
 
 ```SQL
 SELECT
