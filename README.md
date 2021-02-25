@@ -440,10 +440,10 @@ ORDER BY
 
 | name               | city    | category | stars | hours                | Total_reviews |
 |--------------------|---------|----------|-------|----------------------|---------------|
-| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00  |           245 |
-| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00  |            60 |
-| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00 |            90 |
-| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00  |           182 |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday 10:00-2:00  |           245 |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday 18:00-2:00  |            60 |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday 11:00-21:00 |            90 |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday 16:00-2:00  |           182 |
 
 
 **It´s interesting grouping by hours.hours**
