@@ -313,7 +313,7 @@ ORDER BY
 
 Answer:   
 **1644 reviews with the word 'LOVE' and 115 reviews with the word 'HATE'.**   
-**!!ONE IMPORTANTE thing I noticed is that, if I use '%hate%' it counts the word 'WHATEVER'. So, if I use '% hate%', it excludes this mistake.   
+**!!ONE IMPORTANTE THING I noticed is that, if I use '%hate%' it counts the word 'WHATEVER'. So, if I use '% hate%', it excludes this mistake.   
 Also, if I use '% hate %', it could exclude the cases when the word 'hate' comes followed by comma "," or dot "." and the conjugated verbs ("hated").    
 The same I did for the word 'love'.**   
 **Just out of curiosity: the results with the '%hate%': 232 and with '%love%': 1780.**
@@ -347,7 +347,7 @@ Copy and Paste the Result Below:
 	
 		
 
-Part 2: Inferences and Analysis
+## Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
 	
