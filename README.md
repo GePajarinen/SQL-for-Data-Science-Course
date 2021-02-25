@@ -141,9 +141,9 @@ ORDER BY
 ```   	
 
 Copy and Paste the Result Below:   
-+-----------------+---------------+   
+
 | city            | total_reviews |   
-+-----------------+---------------+   
+|-----------------|---------------|   
 | Las Vegas       |         82854 |   
 | Phoenix         |         34503 |   
 | Toronto         |         24113 |   
@@ -168,12 +168,11 @@ Copy and Paste the Result Below:
 | Stuttgart       |          1849 |   
 | Surprise        |          1520 |   
 | Lakewood        |          1465 |   
-| Goodyear        |          1155 |   
-+-----------------+---------------+  
+| Goodyear        |          1155 |    
 (Output limit exceeded, 25 of 362 total rows shown)   
 
 	
-6. Find the distribution of star ratings to the business in the following cities:
+### 6. Find the distribution of star ratings to the business in the following cities:
 
 i. Avon
 
