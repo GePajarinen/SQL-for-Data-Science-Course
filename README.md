@@ -27,8 +27,10 @@ x. tip table = **10000**
 xi. user table = **10000**    
 	
 ```SQL    
-SELECT COUNT(*)
-FROM table   
+SELECT 
+	COUNT(*)
+FROM 
+	table   
 ```
 
 ### 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
@@ -48,8 +50,10 @@ xi. Elite_years = **user_id 2780**
 *Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.   
 
 ```SQL 
-select COUNT(distinct key_id)
-from table 
+SELECT 
+	COUNT(distinct key_id)
+FROM 
+	table 
 ```   
 
 ### 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
