@@ -354,8 +354,8 @@ ORDER BY
   total_fans DESC
 LIMIT
   10	
-```SQL	  
-	
+```   	  
+
 Copy and Paste the Result Below:
 
 | id                     | name      | total_fans |
@@ -370,7 +370,7 @@ Copy and Paste the Result Below:
 | -FZBTkAZEXoP7CYvRV2ZwQ | William   |        126 |
 | -9da1xk7zgnnfO1uTVYGkA | Fran      |        124 |
 | -lh59ko3dxChBSZ9U7LfUw | Lissa     |        120 |
-		
+	
 
 ## Part 2: Inferences and Analysis
 
