@@ -346,10 +346,8 @@ SELECT
   id,
   name,
   fans AS total_fans
-  --sum(fans) as total_fans
 FROM
   user
-  --GROUP BY id
 ORDER BY
   total_fans DESC
 LIMIT
@@ -374,10 +372,134 @@ Copy and Paste the Result Below:
 
 ## Part 2: Inferences and Analysis
 
-1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
-	
-i. Do the two groups you chose to analyze have a different distribution of hours?
+### 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.   
 
+*Checking the Categories:**    
+
+```SQL
+SELECT
+  category,
+  COUNT(category) AS num
+FROM
+  category
+GROUP BY
+  category
+ORDER BY
+  num DESC
+```   
+
+| category                  | num |
+|---------------------------|-----|
+| Restaurants               | 912 |
+| Food                      | 425 |
+| Shopping                  | 405 |
+| Beauty & Spas             | 224 |
+| Nightlife                 | 214 |
+| Home Services             | 203 |
+| Health & Medical          | 196 |
+| Bars                      | 185 |
+| Local Services            | 166 |
+| Automotive                | 163 |
+| Active Life               | 122 |
+| Event Planning & Services | 119 |
+| American (Traditional)    | 105 |
+| Fast Food                 | 104 |
+| Fashion                   |  98 |
+| Coffee & Tea              |  92 |
+| Sandwiches                |  90 |
+| Pizza                     |  89 |
+| Arts & Entertainment      |  87 |
+| Hotels & Travel           |  86 |
+| Auto Repair               |  84 |
+| Burgers                   |  81 |
+| Italian                   |  81 |
+| Specialty Food            |  79 |
+| Hair Salons               |  78 |
+(Output limit exceeded, 25 of 712 total rows shown)   
+
+
+**I chose  Bars | 185 |**
+
+**Checking the cities:**
+```SQL   
+SELECT
+  city,
+  state,
+  COUNT(city) AS num
+FROM
+  business
+GROUP BY
+  city
+ORDER BY
+  num DESC
+```
+
+**I Chose  Toronto **
+
+i. Do the two groups you chose to analyze have a different distribution of hours?
+```SQL
+SELECT
+  business.name,
+  business.city,
+  category.category,
+  business.stars,
+  hours.hours
+FROM (business
+  INNER JOIN
+    category
+  ON
+    business.id = category.business_id)
+INNER JOIN
+  hours
+ON
+  hours.business_id = business.id
+WHERE
+  business.city = 'Toronto'
+  AND category.category = "Bars"
+GROUP BY
+  business.stars
+```
+
+**Grouping by stars, it shows only SATURDAY time** 
+
+| name               | city    | category | stars | hours                |
+|--------------------|---------|----------|-------|----------------------|
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00  |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00  |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00 |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00  |
+
+**It´s interesting grouping by hours.hours**
+
+| name               | city    | category | stars | hours                 |
+|--------------------|---------|----------|-------|-----------------------|
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Friday|11:00-2:00     |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Friday|15:00-21:00    |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Friday|15:00-2:00     |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Friday|18:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Monday|11:00-2:00     |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Monday|15:00-1:00     |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Monday|16:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Saturday|10:00-2:00   |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Saturday|11:00-21:00  |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Saturday|16:00-2:00   |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Saturday|18:00-2:00   |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Sunday|10:00-2:00     |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Sunday|11:00-21:00    |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Sunday|16:00-2:00     |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Thursday|11:00-2:00   |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Thursday|15:00-1:00   |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Thursday|15:00-21:00  |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Thursday|18:00-2:00   |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Tuesday|11:00-2:00    |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Tuesday|15:00-1:00    |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Tuesday|15:00-21:00   |
+| Cabin Fever        | Toronto | Bars     |   4.5 | Tuesday|18:00-2:00    |
+| The Fox & Fiddle   | Toronto | Bars     |   2.5 | Wednesday|11:00-2:00  |
+| The Charlotte Room | Toronto | Bars     |   3.5 | Wednesday|15:00-1:00  |
+| Halo Brewery       | Toronto | Bars     |   4.0 | Wednesday|15:00-21:00 |
++--------------------+---------+----------+-------+-----------------------+
+(Output limit exceeded, 25 of 26 total rows shown)
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
          
@@ -388,7 +510,7 @@ SQL code used for analysis:
 
 		
 		
-2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
+### 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
 i. Difference 1:
          
@@ -401,7 +523,7 @@ SQL code used for analysis:
 
 	
 	
-3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
+### 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
