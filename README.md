@@ -191,7 +191,7 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 		
 
 
-7. Find the top 3 users based on their total number of reviews:
+### 7. Find the top 3 users based on their total number of reviews:
 		
 	SQL code used to arrive at answer:
 	
@@ -200,13 +200,13 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 		
 
 
-8. Does posing more reviews correlate with more fans?
+### 8. Does posing more reviews correlate with more fans?
 
 	Please explain your findings and interpretation of the results:
 	
 
 	
-9. Are there more reviews with the word "love" or with the word "hate" in them?
+### 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
 	Answer:
 
@@ -215,7 +215,7 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 
 	
 	
-10. Find the top 10 users with the most fans:
+### 10. Find the top 10 users with the most fans:
 
 	SQL code used to arrive at answer:
 	
