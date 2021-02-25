@@ -93,35 +93,37 @@ WHERE
 	
 ### 4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
-	i. Table: Review, Column: Stars
+i. Table: Review, Column: Stars
 	
-		min: **1**	max: **5**	avg: **3.7082**
+	min: 1		max: 5		avg: 3.7082
 		
 	
-	ii. Table: Business, Column: Stars
+ii. Table: Business, Column: Stars
 	
-		min: **1.0**	max: **5.0**	avg: **3.6549** 
+	min: 1.0	max: 5.0	avg: 3.6549 
 		
 	
-	iii. Table: Tip, Column: Likes
+iii. Table: Tip, Column: Likes
 	
-		min: **0**	max: **2**	avg: **0.0144**
+	min: 0		max: 2		avg: 0.0144
 		
 	
-	iv. Table: Checkin, Column: Count
+iv. Table: Checkin, Column: Count
 	
-		min: **1**	max: **53** 	avg: **1.9414**
+	min: 1		max: 53 	avg: 1.9414
 		
 	
-	v. Table: User, Column: Review_count
+v. Table: User, Column: Review_count
 	
-		min: **0**	max: **2000**	avg: **24.2995**
+	min: 0		max: 2000	avg: 24.2995
 
 
-
- Select  MIN(Column),MAX(Column),AVG(Column)
- from table     
-
+```SQL 
+ SELECT  
+ 	MIN(Column), MAX(Column), AVG(Column)
+ FROM 
+ 	table     
+```   
 
 5. List the cities with the most reviews in descending order:
 
