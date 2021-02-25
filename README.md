@@ -268,7 +268,6 @@ SELECT
   id,
   name,
   SUM(review_count) AS total_reviews,
-  -- in case of duplicate user
   SUM(fans) AS total_fans
   --fans -- it works too as SUM, but let be the SUM just to be sure
 FROM
@@ -312,10 +311,10 @@ ORDER BY
 
 ### 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
-	Answer:
+Answer:
 
 	
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 
 	
 	
