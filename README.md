@@ -483,7 +483,7 @@ i. Do the two groups you chose to analyze have a different distribution of hours
 ii. Do the two groups you chose to analyze have a different number of reviews?
 **The Bars with lowest stars have a bit more reviews than the ones with highest stars**         
          
-iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+iii. Are you able to infer anything from the location data provided between these two groups? Explain.   
 **TO DO: I ll check this on google maps**
 
 
