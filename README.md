@@ -487,7 +487,12 @@ ii. Do the two groups you chose to analyze have a different number of reviews?
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.    
 
 <img src="https://github.com/GePajarinen/SQL-for-Data-Science-Course/blob/main/mapa.jpg?raw=true" alt="map result" style="height: 100px; width:100px;"/>   
-
+**The two bars with the best qualification are located on the west side of the city. As we go to the east, the qualification goes down. The bar with the least amount of stars is located on the east art of the city**
+ 
+The Fox & Fiddle 2.5    
+The Charlotte Room 3.5   
+Halo Brewery 4.0   
+Cabin Fever 4.5   
 
 SQL code used for analysis:
 
