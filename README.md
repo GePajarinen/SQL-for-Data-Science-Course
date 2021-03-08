@@ -478,13 +478,13 @@ ORDER BY
 | Halo Brewery       | Toronto | Bars     |   4.0 | Wednesday 15:00-21:00 |
 (Output limit exceeded, 25 of 26 total rows shown)
 
-i. Do the two groups you chose to analyze have a different distribution of hours?
-**The Bars with highest stars open afernoom, when the Bar with the lowest stars points opens before noom, at 11am.**
+i. Do the two groups you chose to analyze have a different distribution of hours?   
+**The Bars with highest stars open afernoom, when the Bar with the lowest stars points opens before noom, at 11am.**   
 
-ii. Do the two groups you chose to analyze have a different number of reviews?
-**The Bars with lowest stars have a bit more reviews than the ones with highest stars**         
+ii. Do the two groups you chose to analyze have a different number of reviews?   
+**The Bars with lowest stars have a bit more reviews than the ones with highest stars**       
          
-iii. Are you able to infer anything from the location data provided between these two groups? Explain.   
+iii. Are you able to infer anything from the location data provided between these two groups? Explain.    
 **TO DO: I ll check this on google maps**
 
 
