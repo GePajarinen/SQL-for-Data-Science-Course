@@ -533,8 +533,8 @@ GROUP BY
 i. Difference 1:  
 
 **Comparing on the same category, the ones witch closed have much less total reviews than the ones open.
-Well, I could assume that could be a bias:
-- As we don't know when the closed ones finished their businesses and since the ones open are still getting reviews.**   
+Well, I could assume that could be a bias:**
+**- As we don't know when the closed ones finished their businesses and since the ones open are still getting reviews.**   
 **The closed ones, can not get reviews anymore.**
 
 *OPEN by category*
@@ -625,7 +625,6 @@ GROUP BY
 **NOTES
 OVERVIEW:**
 
-
 | Quantity | is_open |
 |----------|---------|
 |     1520 |       0 |
@@ -648,55 +647,6 @@ WHERE
   is_open =1
 ```  
   
-*The closed ones:*
-| is_open | stars | name                                | city            | totalReviews | category                     |
-|---------|-------|-------------------------------------|-----------------|--------------|------------------------------|
-|       0 |   1.5 | Holiday Inn Express Oakwood Village | Oakwood Village |           36 | Event Planning & Services    |
-|       0 |   2.0 | 99 Cent Sushi                       | Toronto         |           15 | Restaurants                  |
-|       0 |   2.0 | Fiesta Ranchera                     | Champaign       |            8 | Mexican                      |
-|       0 |   2.0 | Ghost Armor SS Springs              | Mesa            |           12 | Mobile Phone Accessories     |
-|       0 |   2.0 | Humber River Regional Hospital      | Toronto         |           20 | Public Services & Government |
-|       0 |   2.0 | Iron City Grille                    | Coraopolis      |           12 | Nightlife                    |
-|       0 |   2.0 | Mood                                | Edinburgh       |           22 | Nightlife                    |
-|       0 |   2.5 | Famous Sam's                        | Glendale        |            6 | Restaurants                  |
-|       0 |   3.0 | Irish Republic                      | Chandler        |          705 | Bars                         |
-|       0 |   3.0 | Landgasthaus Busse                  | Hemmingen       |            9 | German                       |
-|       0 |   3.0 | Restaurant Rosalie                  | Montréal        |           95 | Bars                         |
-|       0 |   3.5 | Club India restaurant               | Edinburgh       |            9 | Indian                       |
-|       0 |   3.5 | Saigon Grille                       | Cleveland       |          124 | Vietnamese                   |
-|       0 |   3.5 | The Charlotte Room                  | Toronto         |           60 | Venues & Event Spaces        |
-|       0 |   3.5 | Wooly Wonders                       | Las Vegas       |           22 | Shopping                     |
-|       0 |   4.0 | Eklectic Pie - Mesa                 | Mesa            |          903 | Gluten-Free                  |
-|       0 |   4.0 | Jacques Cafe                        | Las Vegas       |         1176 | Gluten-Free                  |
-|       0 |   4.0 | Mama Mia                            | Toronto         |           32 | Latin American               |
-|       0 |   4.0 | Nabers Music, Bar & Eats            | Chandler        |          225 | Bars                         |
-|       0 |   4.0 | Papa Murphy's                       | Madison         |            8 | Pizza                        |
-|       0 |   4.0 | Sweet Ruby Jane Confections         | Las Vegas       |          150 | Desserts                     |
-|       0 |   4.0 | The Cider Mill                      | Scottsdale      |          546 | Sandwiches                   |
-|       0 |   4.5 | Charlie D's Catfish & Chicken       | Phoenix         |           28 | Seafood                      |
-|       0 |   4.5 | Grotown Horticulture Supply         | Phoenix         |            9 | Nurseries & Gardening        |
-|       0 |   4.5 | Hibachi-San                         | Las Vegas       |            6 | Japanese                     |
-+---------+-------+-------------------------------------+-----------------+--------------+------------------------------+
-(Output limit exceeded, 25 of 32 total rows shown)
-SELECT
-  business.is_open,
-  business.stars,
-  business.name,
-  business.city,
-  SUM(business.review_count) AS totalReviews,
-  category.category
-FROM
-  business
-JOIN
-  category
-ON
-  category.business_id = business.id
-WHERE
-  business.is_open = 0
-GROUP BY
-  business.name
-ORDER BY
-  business.stars
 ### 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
