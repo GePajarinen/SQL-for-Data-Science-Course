@@ -531,9 +531,15 @@ GROUP BY
 ### 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
 i. Difference 1:  
-open by category
+
+**Comparing on the same category, the ones witch closed have much less total reviews than the ones open.
+Well, I could assume that could be a bias:
+- As we don't know when the closed ones finished their businesses and since the ones open are still getting reviews.**   
+**The closed ones, can not get reviews anymore.**
+
+*OPEN by category*
 | Quantity |     AvgStrars | totalReviews | category               |
-+----------+---------------+--------------+------------------------+
+|----------|---------------|--------------|------------------------|
 |       53 | 3.45283018868 |         3772 | Restaurants            |
 |       25 |           4.0 |          945 | Shopping               |
 |       20 |         3.725 |         1588 | Food                   |
@@ -548,9 +554,9 @@ open by category
 |        8 |        3.8125 |         1114 | American (Traditional) |
 
 
-closed by category
+*Closed by category*
 | Quantity |     AvgStrars | totalReviews | category                  |
-+----------+---------------+--------------+---------------------------+
+|----------|---------------|--------------|---------------------------|
 |       18 | 3.47222222222 |          732 | Restaurants               |
 |        8 |          3.25 |          399 | Nightlife                 |
 |        6 |          3.25 |          377 | Bars                      |
@@ -564,7 +570,9 @@ closed by category
 |        2 |           3.5 |          148 | Italian                   |
 |        2 |          3.25 |            8 | Japanese                  |
 
+SQL code used for analysis:   
 
+```SQL
 SELECT
   COUNT(business.is_open) AS Quantity,
   AVG(business.stars) AS AvgStrars,
@@ -584,19 +592,23 @@ ORDER BY
   Quantity DESC
 LIMIT
   12
-  
+``` 
  	 
-ii. Difference 2:
-| sum(useful) | sum(funny) | sum(cool) | TotalReviews | is_open |      AvgStars |
-+-------------+------------+-----------+--------------+---------+---------------+
-|          69 |         15 |        30 |         9217 |       0 | 3.54225352113 |
-|         484 |        152 |       219 |       175821 |       1 |  3.7610619469 |
+ii. Difference 2:   
+**The closed businesses have got much less reviews classified as useful, cool or funny.**
+
+| Useful | Funny | Cool | TotalReviews | is_open |      AvgStars |
+|--------|-------|------|--------------|---------|---------------|
+|     69 |    15 |   30 |         9217 |       0 | 3.54225352113 |
+|    484 |   152 |  219 |       175821 |       1 |  3.7610619469 |
   
-  
+SQL code used for analysis:   
+
+```sQL
   SELECT
-  SUM(useful),
-  SUM(funny),
-  SUM(cool),
+  SUM(useful) AS Useful,
+  SUM(funny) AS Funny,
+  SUM(cool) AS Cool,
   SUM(business.review_count) AS TotalReviews,
   business.is_open,
   AVG(business.stars) AS AvgStars
@@ -608,16 +620,37 @@ ON
   review.business_id = business.id
 GROUP BY
   business.is_open   
-         
-         
-SQL code used for analysis:
-
+```         
 	
-NOTES
-OVERVIEW:
-The closed ones:
-is_open | stars | name                                | city            | totalReviews | category                     |
-+---------+-------+-------------------------------------+-----------------+--------------+------------------------------+
+**NOTES
+OVERVIEW:**
+
+
+| Quantity | is_open |
+|----------|---------|
+|     1520 |       0 |
+|     8480 |       1 |
+
+```SQL
+SELECT
+  COUNT(is_open) AS Quantity,
+  is_open
+FROM
+  business
+WHERE
+  is_open = 0 UNION
+SELECT
+  COUNT(is_open) AS Quantity,
+  is_open
+FROM
+  business
+WHERE
+  is_open =1
+```  
+  
+*The closed ones:*
+| is_open | stars | name                                | city            | totalReviews | category                     |
+|---------|-------|-------------------------------------|-----------------|--------------|------------------------------|
 |       0 |   1.5 | Holiday Inn Express Oakwood Village | Oakwood Village |           36 | Event Planning & Services    |
 |       0 |   2.0 | 99 Cent Sushi                       | Toronto         |           15 | Restaurants                  |
 |       0 |   2.0 | Fiesta Ranchera                     | Champaign       |            8 | Mexican                      |
