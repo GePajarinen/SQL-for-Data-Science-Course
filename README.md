@@ -585,10 +585,7 @@ ORDER BY
 LIMIT
   12
   
-  
-  
-  
-	 
+ 	 
 ii. Difference 2:
          
          
