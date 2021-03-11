@@ -1,6 +1,9 @@
 # SQL for Data Science
 ### Course from Coursera
 https://www.coursera.org/learn/sql-for-data-science/home/welcome
+
+
+### Yelp Dataset SQL Lookup   
 https://www.coursera.org/learn/sql-for-data-science/supplement/VSJ29/yelp-dataset-sql-lookup
 
 Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
@@ -527,9 +530,65 @@ GROUP BY
 		
 ### 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
-i. Difference 1:
-         
-         
+i. Difference 1:  
+open by category
+| Quantity |     AvgStrars | totalReviews | category               |
++----------+---------------+--------------+------------------------+
+|       53 | 3.45283018868 |         3772 | Restaurants            |
+|       25 |           4.0 |          945 | Shopping               |
+|       20 |         3.725 |         1588 | Food                   |
+|       16 |       4.21875 |          198 | Health & Medical       |
+|       15 | 3.93333333333 |           91 | Home Services          |
+|       12 | 3.79166666667 |          116 | Beauty & Spas          |
+|       12 |         3.625 |          952 | Nightlife              |
+|       11 | 3.63636363636 |          945 | Bars                   |
+|       10 |          4.15 |          131 | Active Life            |
+|       10 |          4.35 |           94 | Local Services         |
+|        9 |           4.5 |          198 | Automotive             |
+|        8 |        3.8125 |         1114 | American (Traditional) |
+
+
+closed by category
+| Quantity |     AvgStrars | totalReviews | category                  |
++----------+---------------+--------------+---------------------------+
+|       18 | 3.47222222222 |          732 | Restaurants               |
+|        8 |          3.25 |          399 | Nightlife                 |
+|        6 |          3.25 |          377 | Bars                      |
+|        5 |           3.9 |           32 | Shopping                  |
+|        3 | 3.16666666667 |          190 | American (New)            |
+|        3 | 3.83333333333 |           14 | American (Traditional)    |
+|        3 | 3.33333333333 |           23 | Event Planning & Services |
+|        3 | 4.16666666667 |          193 | Food                      |
+|        2 |          4.25 |          102 | Desserts                  |
+|        2 |           4.0 |          297 | Gluten-Free               |
+|        2 |           3.5 |          148 | Italian                   |
+|        2 |          3.25 |            8 | Japanese                  |
+
+
+SELECT
+  COUNT(business.is_open) AS Quantity,
+  AVG(business.stars) AS AvgStrars,
+  SUM(business.review_count) AS totalReviews,
+  category.category
+FROM
+  business
+JOIN
+  category
+ON
+  category.business_id = business.id
+WHERE
+  business.is_open = 1 --0
+GROUP BY
+  category.category
+ORDER BY
+  Quantity DESC
+LIMIT
+  12
+  
+  
+  
+  
+	 
 ii. Difference 2:
          
          
@@ -537,7 +596,57 @@ ii. Difference 2:
 SQL code used for analysis:
 
 	
-	
+NOTES
+OVERVIEW:
+The closed ones:
+is_open | stars | name                                | city            | totalReviews | category                     |
++---------+-------+-------------------------------------+-----------------+--------------+------------------------------+
+|       0 |   1.5 | Holiday Inn Express Oakwood Village | Oakwood Village |           36 | Event Planning & Services    |
+|       0 |   2.0 | 99 Cent Sushi                       | Toronto         |           15 | Restaurants                  |
+|       0 |   2.0 | Fiesta Ranchera                     | Champaign       |            8 | Mexican                      |
+|       0 |   2.0 | Ghost Armor SS Springs              | Mesa            |           12 | Mobile Phone Accessories     |
+|       0 |   2.0 | Humber River Regional Hospital      | Toronto         |           20 | Public Services & Government |
+|       0 |   2.0 | Iron City Grille                    | Coraopolis      |           12 | Nightlife                    |
+|       0 |   2.0 | Mood                                | Edinburgh       |           22 | Nightlife                    |
+|       0 |   2.5 | Famous Sam's                        | Glendale        |            6 | Restaurants                  |
+|       0 |   3.0 | Irish Republic                      | Chandler        |          705 | Bars                         |
+|       0 |   3.0 | Landgasthaus Busse                  | Hemmingen       |            9 | German                       |
+|       0 |   3.0 | Restaurant Rosalie                  | Montréal        |           95 | Bars                         |
+|       0 |   3.5 | Club India restaurant               | Edinburgh       |            9 | Indian                       |
+|       0 |   3.5 | Saigon Grille                       | Cleveland       |          124 | Vietnamese                   |
+|       0 |   3.5 | The Charlotte Room                  | Toronto         |           60 | Venues & Event Spaces        |
+|       0 |   3.5 | Wooly Wonders                       | Las Vegas       |           22 | Shopping                     |
+|       0 |   4.0 | Eklectic Pie - Mesa                 | Mesa            |          903 | Gluten-Free                  |
+|       0 |   4.0 | Jacques Cafe                        | Las Vegas       |         1176 | Gluten-Free                  |
+|       0 |   4.0 | Mama Mia                            | Toronto         |           32 | Latin American               |
+|       0 |   4.0 | Nabers Music, Bar & Eats            | Chandler        |          225 | Bars                         |
+|       0 |   4.0 | Papa Murphy's                       | Madison         |            8 | Pizza                        |
+|       0 |   4.0 | Sweet Ruby Jane Confections         | Las Vegas       |          150 | Desserts                     |
+|       0 |   4.0 | The Cider Mill                      | Scottsdale      |          546 | Sandwiches                   |
+|       0 |   4.5 | Charlie D's Catfish & Chicken       | Phoenix         |           28 | Seafood                      |
+|       0 |   4.5 | Grotown Horticulture Supply         | Phoenix         |            9 | Nurseries & Gardening        |
+|       0 |   4.5 | Hibachi-San                         | Las Vegas       |            6 | Japanese                     |
++---------+-------+-------------------------------------+-----------------+--------------+------------------------------+
+(Output limit exceeded, 25 of 32 total rows shown)
+SELECT
+  business.is_open,
+  business.stars,
+  business.name,
+  business.city,
+  SUM(business.review_count) AS totalReviews,
+  category.category
+FROM
+  business
+JOIN
+  category
+ON
+  category.business_id = business.id
+WHERE
+  business.is_open = 0
+GROUP BY
+  business.name
+ORDER BY
+  business.stars
 ### 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
