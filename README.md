@@ -1,6 +1,7 @@
 # SQL for Data Science
 ### Course from Coursera
 https://www.coursera.org/learn/sql-for-data-science/home/welcome
+https://www.coursera.org/learn/sql-for-data-science/supplement/VSJ29/yelp-dataset-sql-lookup
 
 Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
 
@@ -484,16 +485,17 @@ i. Do the two groups you chose to analyze have a different distribution of hours
 ii. Do the two groups you chose to analyze have a different number of reviews?   
 **The Bars with lowest stars have a bit more reviews than the ones with highest stars**       
          
-iii. Are you able to infer anything from the location data provided between these two groups? Explain.    
+iii. Are you able to infer anything from the location data provided between these two groups? Explain. 
 
 <img src="https://github.com/GePajarinen/SQL-for-Data-Science-Course/blob/main/mapa.jpg?raw=true" alt="map result" style="height: 100px; width:100px;"/>  
 
-**The two bars with the best qualification are located on the west side of the city. As we go to the east, the qualification goes down. The bar with the least amount of stars is located on the east art of the city**
+**The two bars with the best qualification are located on the west side of the city. As we go to the east, the qualification goes down. The bar with the least amount of stars is located on the east art of the city.
+I used google maps and the longitude\latitude informations to pinpoint the locations and get the image**
  
-The Fox & Fiddle 2.5    
-The Charlotte Room 3.5   
-Halo Brewery 4.0   
-Cabin Fever 4.5   
+The Fox & Fiddle, 2.5 stars    
+The Charlotte Room, 3.5 stars   
+Halo Brewery, 4.0 stars   
+Cabin Fever, 4.5 stars   
 
 SQL code used for analysis:
 
