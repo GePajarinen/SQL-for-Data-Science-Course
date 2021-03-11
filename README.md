@@ -611,7 +611,7 @@ SQL code used for analysis:
   SUM(cool) AS Cool,
   SUM(business.review_count) AS TotalReviews,
   business.is_open,
-  count(is_open) as Number_businesses, 
+  COUNT(is_open) as Number_businesses, 
   AVG(business.stars) AS AvgStars
 FROM
   review
@@ -623,8 +623,7 @@ GROUP BY
   business.is_open   
 ```         
 	
-**NOTES
-OVERVIEW:**
+**NOTES:**
 
 | Quantity | is_open |
 |----------|---------|
