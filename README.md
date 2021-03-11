@@ -595,13 +595,13 @@ LIMIT
 ``` 
  	 
 ii. Difference 2:   
-**The closed businesses have got much less reviews classified as useful, cool or funny.**
+**The closed businesses have got much less reviews classified as useful, cool or funny.**   
 
-| Useful | Funny | Cool | TotalReviews | is_open |      AvgStars |
-|--------|-------|------|--------------|---------|---------------|
-|     69 |    15 |   30 |         9217 |       0 | 3.54225352113 |
-|    484 |   152 |  219 |       175821 |       1 |  3.7610619469 |
-  
+| Useful | Funny | Cool | TotalReviews | is_open | Number_businesses |      AvgStars |
+|--------|-------|------|--------------|---------|-------------------|---------------|
+|     69 |    15 |   30 |         9217 |       0 |                71 | 3.54225352113 |
+|    484 |   152 |  219 |       175821 |       1 |               565 |  3.7610619469 |   
+
 SQL code used for analysis:   
 
 ```sQL
@@ -611,6 +611,7 @@ SQL code used for analysis:
   SUM(cool) AS Cool,
   SUM(business.review_count) AS TotalReviews,
   business.is_open,
+  count(is_open) as Number_businesses, 
   AVG(business.stars) AS AvgStars
 FROM
   review
