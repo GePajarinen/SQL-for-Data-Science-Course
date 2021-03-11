@@ -587,7 +587,27 @@ LIMIT
   
  	 
 ii. Difference 2:
-         
+| sum(useful) | sum(funny) | sum(cool) | TotalReviews | is_open |      AvgStars |
++-------------+------------+-----------+--------------+---------+---------------+
+|          69 |         15 |        30 |         9217 |       0 | 3.54225352113 |
+|         484 |        152 |       219 |       175821 |       1 |  3.7610619469 |
+  
+  
+  SELECT
+  SUM(useful),
+  SUM(funny),
+  SUM(cool),
+  SUM(business.review_count) AS TotalReviews,
+  business.is_open,
+  AVG(business.stars) AS AvgStars
+FROM
+  review
+JOIN
+  business
+ON
+  review.business_id = business.id
+GROUP BY
+  business.is_open   
          
          
 SQL code used for analysis:
