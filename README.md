@@ -661,3 +661,59 @@ iii. Output of your finished dataset:
          
          
 iv. Provide the SQL code you used to create your final dataset:
+
+
+  SELECT
+    name, sum(review_count) as ttl_reviews, useful, count(id) total, id
+  FROM
+    user
+  group by id
+  order by ttl_reviews desc
+limit 5
+  | name    | ttl_reviews | useful | total | id                     |
++---------+-------------+--------+-------+------------------------+
+| Gerald  |        2000 |  17524 |     1 | -G7Zkl1wIWBBmD0KRy_sCw |
+| Sara    |        1629 |     25 |     1 | -3s52C4zL_DHRK0ULG6qtg |
+| Yuri    |        1339 |   1166 |     1 | -8lbUNlXVSoXqaRRiHiSNg |
+| .Hon    |        1246 |   7850 |     1 | -K2Tcgh2EKX6e6HqqIrBIQ |
+| William |        1215 |   9363 |     1 | -FZBTkAZEXoP7CYvRV2ZwQ |
+
+
+  SELECT
+    count(user.name) as total, user.name, user.review_count, user.useful, user.average_stars,
+    review.useful, review.business_id, review.stars
+  FROM
+    user
+  join 
+  review
+  on review.user_id = user.id
+  group by user.name
+  order by total desc
+limit 5
+
+
+| total | name      | review_count | useful | average_stars | useful  | business_id            | stars |
++-------+-----------+--------------+--------+---------------+---------+------------------------+-------+
+|     3 | Ed        |            8 |     37 |          3.56 |       0 | 01Ov9eDxKRY5k6ImMdiWLQ |     3 |
+|     2 | Amy       |            7 |      0 |          3.33 |       1 | fBnjRegibJTV1zMPMvCluA |     4 |
+|     2 | Christina |           86 |     16 |          4.69 |       2 | Yz7rfHjytl6Yn4_PiK2HsQ |     5 |
+|     2 | Craig     |           83 |      8 |          3.29 |       2 | SYKIUCvN9JdSkVampgccfA |     5 |
+|     2 | Kaitlan   |          235 |     30 |          3.92 |       0 | v3hOnLX3zOuRao5Gc3C8hQ |     4 |
+
+
+  SELECT
+    count(user_id) totalReviews, user_id, useful--, name
+  FROM
+    review
+   -- join user on user.id = user_id
+  group by user_id
+  order by totalReviews desc
+  
+  
+  | totalReviews | user_id                | useful |
++--------------+------------------------+--------+
+|            7 | CxDOIDnH8gp9KXzpBHJYXw |      3 |
+|            7 | U4INQZOPSUaj8hMjLlZ3KA |     14 |
+|            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |      7 |
+|            5 | N3oNEwh0qgPqPP3Em6wJXw |      0 |
+|            5 | pMefTWo6gMdx8WhYSA2u3w |      1 |
