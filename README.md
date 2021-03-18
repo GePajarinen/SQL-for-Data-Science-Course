@@ -746,4 +746,15 @@ limit 5
 | U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
 
 
+SELECT
+    review.user_id, review.useful, review.business_id, business.name, business.stars, business.is_open
+  FROM
+    review
+  join business on review.business_id = business.id
+  where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
+  
+  | user_id                | useful | business_id            | name       | stars | is_open |
++------------------------+--------+------------------------+------------+-------+---------+
+| U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ | The Buffet |   3.5 |       1 |
 
+**só consta UM RESTAURANTE na tabela Business!!!! =(**
