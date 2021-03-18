@@ -694,7 +694,7 @@ LIMIT
 
  
 **Then, selecting the users in the Review table with the most amount of useful reviews.   
-These ones are not in the User table**      
+But these ones are not in the User table**      
 
 ```SQL
 SELECT
@@ -720,9 +720,7 @@ LIMIT
 |            5 | pMefTWo6gMdx8WhYSA2u3w |           2 |
 
 
-**Here I select the Users which are also in the Review table.   
-But they have so little amount of reviews. =(    
-Only Christina and Craig have 2 and both are the 'most' useful.**   
+**Here I select the Users which are also in the Review table.**   
 
 ```SQL
 SELECT
@@ -791,7 +789,7 @@ WHERE
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ |
 | U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
 
-**But ONLY ONE business is on the Business table!! =(**   
+**But ONLY ONE business is in the Business table!! =(**   
 
 ```SQL
 SELECT
