@@ -651,20 +651,20 @@ WHERE
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
-i. Indicate the type of analysis you chose to do:
+i. Indicate the type of analysis you chose to do:   
 **To check which user have given the highest amount of useful reviews and relacionate with the business categories. Try to find the preference of category of this user.**
          
-ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-**I would need the tables: User, Review, Business and Category. 
-Check from users the biggest sum of review_count and useful.
-Cross the user ID with the review.user_id to get the business_id. Cross it with the business table and the category.
-Check if the business is open, the location and its category.**                          
+ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:   
+**I would need the tables: User, Review, Business and Category.    
+Check from users the biggest sum of review_count and useful.   
+Cross the user ID with the review.user_id to get the business_id. Cross it with the business table and the category.   
+Check if the business is open, the location and its category.**                             
                   
-iii. Output of your finished dataset:
-**The person with the biggest amount of useful reviews in User is not in the Review table.
-The person with the biggest amount of useful reviews in the Reviews table, doesn´t have the business in the Business table. Actually, only one business.**   
+iii. Output of your finished dataset:   
+**The person with the biggest amount of useful reviews in User is not in the Review table.   
+The person with the biggest amount of useful reviews in the Reviews table, doesn´t have the business in the Business table. Actually, only one business.**    
 
-iv. Provide the SQL code you used to create your final dataset:
+iv. Provide the SQL code you used to create your final dataset:   
 
 ```SQL
   SELECT
