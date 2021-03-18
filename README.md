@@ -666,10 +666,10 @@ The person with the biggest amount of useful reviews in the Reviews table, doesn
 
 iv. Provide the SQL code you used to create your final dataset:   
 **Selecting the users with the most amount of useful reviews.   
-But they are not in the Review table.** 
+But they are not in the Review table.**    
 
 ```SQL
-  SELECT
+SELECT
   name,
   SUM(review_count) AS ttl_reviews,
   useful,
@@ -692,7 +692,7 @@ LIMIT
 | Lisa   |        2021 |      0 | -lsC2rT-nb2FftcPGzQGhA |
 | Mark   |        1945 |      0 | -lUVPiL0NfrwEfD9yuBhlQ |
 
-<br>  
+ 
 **Then, selecting the users in the Review table with the most amount of useful reviews.   
 These ones are not in the User table**      
 
@@ -719,7 +719,6 @@ LIMIT
 |            5 | N3oNEwh0qgPqPP3Em6wJXw |           9 |
 |            5 | pMefTWo6gMdx8WhYSA2u3w |           2 |
 
-<br>
 
 **Here I select the Users which are also in the Review table.   
 But they have so little amount of reviews. =(    
@@ -747,7 +746,7 @@ LIMIT
 ```
 
 | id                     | name    | ttlRev | sum(user.useful) | stars |
-+------------------------+---------+--------+------------------+-------+
+|------------------------|---------|--------|------------------|-------|
 | -Hpah8QHUeWjSWq1qSIozQ | Ed      |    919 |              178 |     3 |
 | -hxUwfo3cMnLTv-CAaP69A | Crissy  |    676 |                4 |     5 |
 | -d4NT5rjIpZEz07f5rYtlg | Danny   |    564 |               38 |     4 |
@@ -792,7 +791,7 @@ WHERE
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ |
 | U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
 
-**But ONLU ONE business is on the Business table!! =(**   
+**But ONLY ONE business is on the Business table!! =(**   
 
 ```SQL
 SELECT
