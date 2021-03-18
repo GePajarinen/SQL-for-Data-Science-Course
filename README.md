@@ -664,19 +664,42 @@ iv. Provide the SQL code you used to create your final dataset:
 
 
   SELECT
-    name, sum(review_count) as ttl_reviews, useful, count(id) total, id
+    name, sum(review_count) as ttl_reviews, useful, id
   FROM
     user
-  group by id
+  group by name
   order by ttl_reviews desc
 limit 5
-  | name    | ttl_reviews | useful | total | id                     |
-+---------+-------------+--------+-------+------------------------+
-| Gerald  |        2000 |  17524 |     1 | -G7Zkl1wIWBBmD0KRy_sCw |
-| Sara    |        1629 |     25 |     1 | -3s52C4zL_DHRK0ULG6qtg |
-| Yuri    |        1339 |   1166 |     1 | -8lbUNlXVSoXqaRRiHiSNg |
-| .Hon    |        1246 |   7850 |     1 | -K2Tcgh2EKX6e6HqqIrBIQ |
-| William |        1215 |   9363 |     1 | -FZBTkAZEXoP7CYvRV2ZwQ |
+  | name   | ttl_reviews | useful | id                     |
++--------+-------------+--------+------------------------+
+| Nicole |        2397 |      0 | -LX8NEl6XNKQlA3cViH8gw |
+| Sara   |        2253 |      0 | -kmiAt2tKWmH82ta6KQI7Q |
+| Gerald |        2034 |  17524 | -G7Zkl1wIWBBmD0KRy_sCw |
+| Lisa   |        2021 |      0 | -lsC2rT-nb2FftcPGzQGhA |
+| Mark   |        1945 |      0 | -lUVPiL0NfrwEfD9yuBhlQ |
+
+**Esse pessoal noa consta na tabela REVIEW**   
+
+
+
+  SELECT
+    count(user_id) totalReviews, user_id, useful--, name
+  FROM
+    review
+   -- join user on user.id = user_id
+  group by user_id
+  order by totalReviews desc
+  
+  
+  | totalReviews | user_id                | useful |
++--------------+------------------------+--------+
+|            7 | CxDOIDnH8gp9KXzpBHJYXw |      3 |
+|            7 | U4INQZOPSUaj8hMjLlZ3KA |     14 |
+|            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |      7 |
+|            5 | N3oNEwh0qgPqPP3Em6wJXw |      0 |
+|            5 | pMefTWo6gMdx8WhYSA2u3w |      1 |
+
+**esse pessoal nao consta na tabela USER**
 
 
   SELECT
@@ -700,20 +723,5 @@ limit 5
 |     2 | Craig     |           83 |      8 |          3.29 |       2 | SYKIUCvN9JdSkVampgccfA |     5 |
 |     2 | Kaitlan   |          235 |     30 |          3.92 |       0 | v3hOnLX3zOuRao5Gc3C8hQ |     4 |
 
+**Esses são os que constam em ambas tabelas: USer e review**
 
-  SELECT
-    count(user_id) totalReviews, user_id, useful--, name
-  FROM
-    review
-   -- join user on user.id = user_id
-  group by user_id
-  order by totalReviews desc
-  
-  
-  | totalReviews | user_id                | useful |
-+--------------+------------------------+--------+
-|            7 | CxDOIDnH8gp9KXzpBHJYXw |      3 |
-|            7 | U4INQZOPSUaj8hMjLlZ3KA |     14 |
-|            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |      7 |
-|            5 | N3oNEwh0qgPqPP3Em6wJXw |      0 |
-|            5 | pMefTWo6gMdx8WhYSA2u3w |      1 |
