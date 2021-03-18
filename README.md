@@ -681,23 +681,23 @@ limit 5
 **Esse pessoal noa consta na tabela REVIEW**   
 
 
-
-  SELECT
-    count(user_id) totalReviews, user_id, useful--, name
+ SELECT
+    count(user_id) totalReviews, user_id, sum(useful)
   FROM
     review
    -- join user on user.id = user_id
   group by user_id
   order by totalReviews desc
+  limit 5
   
   
-  | totalReviews | user_id                | useful |
-+--------------+------------------------+--------+
-|            7 | CxDOIDnH8gp9KXzpBHJYXw |      3 |
-|            7 | U4INQZOPSUaj8hMjLlZ3KA |     14 |
-|            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |      7 |
-|            5 | N3oNEwh0qgPqPP3Em6wJXw |      0 |
-|            5 | pMefTWo6gMdx8WhYSA2u3w |      1 |
+ | totalReviews | user_id                | sum(useful) |
++--------------+------------------------+-------------+
+|            7 | CxDOIDnH8gp9KXzpBHJYXw |          19 |
+|            7 | U4INQZOPSUaj8hMjLlZ3KA |          43 |
+|            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |          18 |
+|            5 | N3oNEwh0qgPqPP3Em6wJXw |           9 |
+|            5 | pMefTWo6gMdx8WhYSA2u3w |           2 |
 
 **esse pessoal nao consta na tabela USER**
 
@@ -724,4 +724,26 @@ limit 5
 |     2 | Kaitlan   |          235 |     30 |          3.92 |       0 | v3hOnLX3zOuRao5Gc3C8hQ |     4 |
 
 **Esses são os que constam em ambas tabelas: USer e review**
+
+**Vou usar a segunda:**
+**vou analisar quais restaurantes a segunda pessoa da lista avaliou, porque ela está entre as que mais avaliaram e com mais quantidade de useful**
+
+ SELECT
+    user_id, useful, business_id
+  FROM
+    review
+  where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
+  
+  
+  | user_id                | useful | business_id            |
++------------------------+--------+------------------------+
+| U4INQZOPSUaj8hMjLlZ3KA |      5 | pQ6e4fjq6kqRqLE6w8CfWQ |
+| U4INQZOPSUaj8hMjLlZ3KA |      4 | KPV_FVNWkgmYh1ArVlt6kg |
+| U4INQZOPSUaj8hMjLlZ3KA |      5 | 6Zogn4PXnK-ODBiRy5iz7Q |
+| U4INQZOPSUaj8hMjLlZ3KA |      3 | NGjhZW6RTsMU17uDi5RaOQ |
+| U4INQZOPSUaj8hMjLlZ3KA |      3 | OKZkEXzJt0XIamHRRTX-8g |
+| U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ |
+| U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
+
+
 
