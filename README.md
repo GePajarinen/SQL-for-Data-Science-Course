@@ -737,9 +737,20 @@ limit 5
 | --Qh8yKWAvIP4V4K8ZPfHA | Dixie   |    503 |               21 |     4 |
 | -0udWcFQEt2M8kM3xcIofw | Kaitlan |    470 |               60 |     4 |
 
+**But, for that User 'Ed', I could get only one business ID:**   
+```SQL
+SELECt
+    business_id 
+  FROM
+    review
+  where user_id = "-Hpah8QHUeWjSWq1qSIozQ"
+```
+| business_id            |
+|------------------------|
+| 01Ov9eDxKRY5k6ImMdiWLQ |
 
-**Vou usar a segunda:**
-**vou analisar quais restaurantes a segunda pessoa da lista avaliou, porque ela está entre as que mais avaliaram e com mais quantidade de useful**
+
+**From the previous result, I will check the business related to that second user 'ID: U4INQZOPSUaj8hMjLlZ3KA', cause is the one with the most amount of useful reviews.**    
 
 ```SQL
  SELECT
@@ -759,6 +770,8 @@ limit 5
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ |
 | U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
 
+**But ONLU ONE business is on the Business table!! =(**   
+
 ```SQL
 SELECT
     review.user_id, review.useful, review.business_id, business.name, business.stars, business.is_open
@@ -771,4 +784,4 @@ SELECT
 |------------------------|--------|------------------------|------------|-------|---------|
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ | The Buffet |   3.5 |       1 |
 
-**só consta UM RESTAURANTE na tabela Business!!!! =(**
+
