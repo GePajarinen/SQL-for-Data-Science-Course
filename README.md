@@ -665,6 +665,8 @@ iii. Output of your finished dataset:
 The person with the biggest amount of useful reviews in the Reviews table, doesn´t have the business in the Business table. Actually, only one business.**    
 
 iv. Provide the SQL code you used to create your final dataset:   
+**Selecting the users with the most amount of useful reviews.   
+But they are not in the Review table.** 
 
 ```SQL
   SELECT
@@ -684,7 +686,9 @@ limit 5
 | Lisa   |        2021 |      0 | -lsC2rT-nb2FftcPGzQGhA |
 | Mark   |        1945 |      0 | -lUVPiL0NfrwEfD9yuBhlQ |
 
-**Esse pessoal noa consta na tabela REVIEW**   
+<br>  
+**Then, selecting the users in the Review table with the most amount of useful reviews.   
+These ones are not in the User table**      
 
 ```SQL
  SELECT
@@ -705,31 +709,34 @@ limit 5
 |            5 | N3oNEwh0qgPqPP3Em6wJXw |           9 |
 |            5 | pMefTWo6gMdx8WhYSA2u3w |           2 |
 
-**esse pessoal nao consta na tabela USER**
+<br>
+
+**Here I select the Users which are also in the Review table.   
+But they have so little amount of reviews. =(    
+Only Christina and Craig have 2 and both are the 'most' useful.**   
 
 ```SQL
-  SELECT
-    count(user.name) as total, user.name, user.review_count, user.useful, user.average_stars,
-    review.useful, review.business_id, review.stars
+SELECT
+    user.id, user.name, sum(user.review_count) as ttlRev, sum(user.useful), 
+     review.stars
   FROM
     user
   join 
   review
   on review.user_id = user.id
   group by user.name
-  order by total desc
+  order by ttlRev desc
 limit 5
 ```
 
-| total | name      | review_count | useful | average_stars | useful  | business_id            | stars |
-|-------|-----------|--------------|--------|---------------|---------|------------------------|-------|
-|     3 | Ed        |            8 |     37 |          3.56 |       0 | 01Ov9eDxKRY5k6ImMdiWLQ |     3 |
-|     2 | Amy       |            7 |      0 |          3.33 |       1 | fBnjRegibJTV1zMPMvCluA |     4 |
-|     2 | Christina |           86 |     16 |          4.69 |       2 | Yz7rfHjytl6Yn4_PiK2HsQ |     5 |
-|     2 | Craig     |           83 |      8 |          3.29 |       2 | SYKIUCvN9JdSkVampgccfA |     5 |
-|     2 | Kaitlan   |          235 |     30 |          3.92 |       0 | v3hOnLX3zOuRao5Gc3C8hQ |     4 |
+| id                     | name    | ttlRev | sum(user.useful) | stars |
++------------------------+---------+--------+------------------+-------+
+| -Hpah8QHUeWjSWq1qSIozQ | Ed      |    919 |              178 |     3 |
+| -hxUwfo3cMnLTv-CAaP69A | Crissy  |    676 |                4 |     5 |
+| -d4NT5rjIpZEz07f5rYtlg | Danny   |    564 |               38 |     4 |
+| --Qh8yKWAvIP4V4K8ZPfHA | Dixie   |    503 |               21 |     4 |
+| -0udWcFQEt2M8kM3xcIofw | Kaitlan |    470 |               60 |     4 |
 
-**Esses são os que constam em ambas tabelas: USer e review**
 
 **Vou usar a segunda:**
 **vou analisar quais restaurantes a segunda pessoa da lista avaliou, porque ela está entre as que mais avaliaram e com mais quantidade de useful**
