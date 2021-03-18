@@ -670,12 +670,18 @@ But they are not in the Review table.**
 
 ```SQL
   SELECT
-    name, sum(review_count) as ttl_reviews, useful, id
-  FROM
-    user
-  group by name
-  order by ttl_reviews desc
-limit 5
+  name,
+  SUM(review_count) AS ttl_reviews,
+  useful,
+  id
+FROM
+  user
+GROUP BY
+  name
+ORDER BY
+  ttl_reviews DESC
+LIMIT
+  5
 ```
 
 | name   | ttl_reviews | useful | id                     |
@@ -691,14 +697,18 @@ limit 5
 These ones are not in the User table**      
 
 ```SQL
- SELECT
-    count(user_id) totalReviews, user_id, sum(useful)
-  FROM
-    review
-   -- join user on user.id = user_id
-  group by user_id
-  order by totalReviews desc
-  limit 5
+SELECT
+  COUNT(user_id) totalReviews,
+  user_id,
+  SUM(useful)
+FROM
+  review
+GROUP BY
+  user_id
+ORDER BY
+  totalReviews DESC
+LIMIT
+  5
 ```
   
 | totalReviews | user_id                | sum(useful) |
@@ -717,16 +727,23 @@ Only Christina and Craig have 2 and both are the 'most' useful.**
 
 ```SQL
 SELECT
-    user.id, user.name, sum(user.review_count) as ttlRev, sum(user.useful), 
-     review.stars
-  FROM
-    user
-  join 
+  user.id,
+  user.name,
+  SUM(user.review_count) AS ttlRev,
+  SUM(user.useful),
+  review.stars
+FROM
+  user
+JOIN
   review
-  on review.user_id = user.id
-  group by user.name
-  order by ttlRev desc
-limit 5
+ON
+  review.user_id = user.id
+GROUP BY
+  user.name
+ORDER BY
+  ttlRev DESC
+LIMIT
+  5
 ```
 
 | id                     | name    | ttlRev | sum(user.useful) | stars |
@@ -739,12 +756,14 @@ limit 5
 
 **But, for that User 'Ed', I could get only one business ID:**   
 ```SQL
-SELECt
-    business_id 
-  FROM
-    review
-  where user_id = "-Hpah8QHUeWjSWq1qSIozQ"
+SELECT
+  business_id
+FROM
+  review
+WHERE
+  user_id = "-Hpah8QHUeWjSWq1qSIozQ"
 ```
+
 | business_id            |
 |------------------------|
 | 01Ov9eDxKRY5k6ImMdiWLQ |
@@ -754,10 +773,13 @@ SELECt
 
 ```SQL
  SELECT
-    user_id, useful, business_id
-  FROM
-    review
-  where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
+  user_id,
+  useful,
+  business_id
+FROM
+  review
+WHERE
+  user_id = "U4INQZOPSUaj8hMjLlZ3KA"
 ```  
   
 | user_id                | useful | business_id            |
@@ -774,12 +796,22 @@ SELECt
 
 ```SQL
 SELECT
-    review.user_id, review.useful, review.business_id, business.name, business.stars, business.is_open
-  FROM
-    review
-  join business on review.business_id = business.id
-  where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
+  review.user_id,
+  review.useful,
+  review.business_id,
+  business.name,
+  business.stars,
+  business.is_open
+FROM
+  review
+JOIN
+  business
+ON
+  review.business_id = business.id
+WHERE
+  user_id = "U4INQZOPSUaj8hMjLlZ3KA"
 ```
+
 | user_id                | useful | business_id            | name       | stars | is_open |
 |------------------------|--------|------------------------|------------|-------|---------|
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ | The Buffet |   3.5 |       1 |
