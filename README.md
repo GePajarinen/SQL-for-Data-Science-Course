@@ -652,17 +652,21 @@ WHERE
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
 i. Indicate the type of analysis you chose to do:
-         
+**To check which user have given the highest amount of useful reviews and relacionate with the business categories. Try to find the preference of category of this user.**
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-                           
+**I would need the tables: User, Review, Business and Category. 
+Check from users the biggest sum of review_count and useful.
+Cross the user ID with the review.user_id to get the business_id. Cross it with the business table and the category.
+Check if the business is open, the location and its category.**                          
                   
 iii. Output of your finished dataset:
-         
-         
+**The person with the biggest amount of useful reviews in User is not in the Review table.
+The person with the biggest amount of useful reviews in the Reviews table, doesn´t have the business in the Business table. Actually, only one business.**   
+
 iv. Provide the SQL code you used to create your final dataset:
 
-
+```SQL
   SELECT
     name, sum(review_count) as ttl_reviews, useful, id
   FROM
@@ -670,8 +674,10 @@ iv. Provide the SQL code you used to create your final dataset:
   group by name
   order by ttl_reviews desc
 limit 5
-  | name   | ttl_reviews | useful | id                     |
-+--------+-------------+--------+------------------------+
+```
+
+| name   | ttl_reviews | useful | id                     |
+|--------|-------------|--------|------------------------|
 | Nicole |        2397 |      0 | -LX8NEl6XNKQlA3cViH8gw |
 | Sara   |        2253 |      0 | -kmiAt2tKWmH82ta6KQI7Q |
 | Gerald |        2034 |  17524 | -G7Zkl1wIWBBmD0KRy_sCw |
@@ -680,7 +686,7 @@ limit 5
 
 **Esse pessoal noa consta na tabela REVIEW**   
 
-
+```SQL
  SELECT
     count(user_id) totalReviews, user_id, sum(useful)
   FROM
@@ -689,10 +695,10 @@ limit 5
   group by user_id
   order by totalReviews desc
   limit 5
+```
   
-  
- | totalReviews | user_id                | sum(useful) |
-+--------------+------------------------+-------------+
+| totalReviews | user_id                | sum(useful) |
+|--------------|------------------------|-------------|
 |            7 | CxDOIDnH8gp9KXzpBHJYXw |          19 |
 |            7 | U4INQZOPSUaj8hMjLlZ3KA |          43 |
 |            5 | 8teQ4Zc9jpl_ffaPJUn6Ew |          18 |
@@ -701,7 +707,7 @@ limit 5
 
 **esse pessoal nao consta na tabela USER**
 
-
+```SQL
   SELECT
     count(user.name) as total, user.name, user.review_count, user.useful, user.average_stars,
     review.useful, review.business_id, review.stars
@@ -713,10 +719,10 @@ limit 5
   group by user.name
   order by total desc
 limit 5
-
+```
 
 | total | name      | review_count | useful | average_stars | useful  | business_id            | stars |
-+-------+-----------+--------------+--------+---------------+---------+------------------------+-------+
+|-------|-----------|--------------|--------|---------------|---------|------------------------|-------|
 |     3 | Ed        |            8 |     37 |          3.56 |       0 | 01Ov9eDxKRY5k6ImMdiWLQ |     3 |
 |     2 | Amy       |            7 |      0 |          3.33 |       1 | fBnjRegibJTV1zMPMvCluA |     4 |
 |     2 | Christina |           86 |     16 |          4.69 |       2 | Yz7rfHjytl6Yn4_PiK2HsQ |     5 |
@@ -728,15 +734,16 @@ limit 5
 **Vou usar a segunda:**
 **vou analisar quais restaurantes a segunda pessoa da lista avaliou, porque ela está entre as que mais avaliaram e com mais quantidade de useful**
 
+```SQL
  SELECT
     user_id, useful, business_id
   FROM
     review
   where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
+```  
   
-  
-  | user_id                | useful | business_id            |
-+------------------------+--------+------------------------+
+| user_id                | useful | business_id            |
+|------------------------|--------|------------------------|
 | U4INQZOPSUaj8hMjLlZ3KA |      5 | pQ6e4fjq6kqRqLE6w8CfWQ |
 | U4INQZOPSUaj8hMjLlZ3KA |      4 | KPV_FVNWkgmYh1ArVlt6kg |
 | U4INQZOPSUaj8hMjLlZ3KA |      5 | 6Zogn4PXnK-ODBiRy5iz7Q |
@@ -745,16 +752,16 @@ limit 5
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ |
 | U4INQZOPSUaj8hMjLlZ3KA |     14 | rtlsfmdufArhk-47sWIf2w |
 
-
+```SQL
 SELECT
     review.user_id, review.useful, review.business_id, business.name, business.stars, business.is_open
   FROM
     review
   join business on review.business_id = business.id
   where user_id = "U4INQZOPSUaj8hMjLlZ3KA"
-  
-  | user_id                | useful | business_id            | name       | stars | is_open |
-+------------------------+--------+------------------------+------------+-------+---------+
+```
+| user_id                | useful | business_id            | name       | stars | is_open |
+|------------------------|--------|------------------------|------------|-------|---------|
 | U4INQZOPSUaj8hMjLlZ3KA |      9 | 2weQS-RnoOBhb1KsHKyoSQ | The Buffet |   3.5 |       1 |
 
 **só consta UM RESTAURANTE na tabela Business!!!! =(**
